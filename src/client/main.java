@@ -1,4 +1,4 @@
-package main;
+package client;
 
 import brugerautorisation.data.Diverse;
 import brugerautorisation.data.Bruger;
@@ -12,8 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-import database.UserDAOSOAPI;
-import galgeleg.UserDTO;
 
 /**
  *
