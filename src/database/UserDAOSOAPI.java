@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package client;
+package database;
 
 import client.DALException;
+import client.DALException;
+import client.UserDTO;
 import client.UserDTO;
 import java.util.List;
 import javax.jws.WebMethod;
