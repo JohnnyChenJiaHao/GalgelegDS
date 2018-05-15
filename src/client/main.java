@@ -1,5 +1,6 @@
-package main;
+package client;
 
+import database.UserDAOSOAPI;
 import brugerautorisation.data.Diverse;
 import brugerautorisation.data.Bruger;
 import brugerautorisation.transport.soap.Brugeradmin;
@@ -12,8 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-import database.UserDAOSOAPI;
-import galgeleg.UserDTO;
 
 /**
  *
@@ -82,18 +81,23 @@ public class main {
                 UserDTO user = new UserDTO();
                 
                 user.setStudentID(username);
-                //sc.interrupt();
                 getScore();
                 user.setScore(temp3);
                 user.setTime_used(elapsedSeconds);
                 user.setNumber_of_tries(game.getBrugteBogstaver().size());
                 
-                System.out.println("Score: "+String.format("%.3f", temp3));
                 
                 game2.createScore(user);
+                
+                System.out.println("Student ID: " + username);
+                System.out.println("Score: " + temp3);
+                System.out.println("Tries: " + game.getBrugteBogstaver().size());
+                System.out.println("Time: " + elapsedSeconds);
                 System.out.println("Congratulations you won! You guessed the word: " + game.getOrdet());
                 System.out.println("Type Y to play again");
                 
+                guess = scanner.nextLine();
+
                 if (guess.equalsIgnoreCase("Y")){
                     game.nulstil();
                     
@@ -105,30 +109,17 @@ public class main {
                     System.out.println(game.logStatus());
                     System.out.println("Guess a word!");
                 }
+                else {
+                    System.exit(0);
+                }
             }
             else if (game.erSpilletTabt()) {
-                //sc.interrupt();
-                
-                //TEMP REMOVE//
                 getScore();
-                UserDTO user = new UserDTO();
-                
-                user.setStudentID(username);
-                user.setScore(temp3);
-                user.setTime_used(elapsedSeconds);
-                user.setNumber_of_tries(game.getBrugteBogstaver().size());
-                
-                System.out.println("Score: "+String.format("%.3f", temp3));
-                
-                game2.createScore(user);
-                
-                System.out.println(user.getStudentID());
-                System.out.println(user.getNumber_of_tries());
-                System.out.println(user.getScore());
-                System.out.println(user.getTime_used());
                 System.out.println("You lost! The word was: " + game.getOrdet());
                 System.out.println("Type Y to play again");
                 
+                guess = scanner.nextLine();
+
                 if (guess.equalsIgnoreCase("Y")){
                     game.nulstil();
                     
@@ -139,6 +130,9 @@ public class main {
         
                     System.out.println(game.logStatus());
                     System.out.println("Guess a word!");
+                }
+                else {
+                    System.exit(0);
                 }
             }
         }
@@ -152,7 +146,6 @@ public class main {
                     return true;
                 }catch(Exception e){
                     
-                    System.out.println("Wrong credentials");
                     return false;
                 } 
         }     
@@ -181,7 +174,7 @@ public class main {
             }
                         
             getScore();
-            System.out.println("Score: "+String.format("%.3f", temp3));
+            //System.out.println("Score: "+String.format("%.3f", temp3));
 
         }
     }

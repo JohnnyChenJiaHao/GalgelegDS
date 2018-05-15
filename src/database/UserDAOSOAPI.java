@@ -5,8 +5,10 @@
  */
 package database;
 
-import galgeleg.DALException;
-import galgeleg.UserDTO;
+import client.DALException;
+import client.DALException;
+import client.UserDTO;
+import client.UserDTO;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
