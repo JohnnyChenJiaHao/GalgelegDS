@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -54,17 +53,22 @@ public class Galgelogik implements GalgeI {
 
  
   public Galgelogik() throws RemoteException {
-    muligeOrd.add("bil");
-    muligeOrd.add("computer");
-    muligeOrd.add("programmering");
-    muligeOrd.add("motorvej");
-    muligeOrd.add("busrute");
-    muligeOrd.add("gangsti");
-    muligeOrd.add("skovsnegl");
-    muligeOrd.add("solsort");
-    muligeOrd.add("seksten");
-    muligeOrd.add("sytten");
-    nulstil();
+//    muligeOrd.add("bil");
+//    muligeOrd.add("computer");
+//    muligeOrd.add("programmering");
+//    muligeOrd.add("motorvej");
+//    muligeOrd.add("busrute");
+//    muligeOrd.add("gangsti");
+//    muligeOrd.add("skovsnegl");
+//    muligeOrd.add("solsort");
+//    muligeOrd.add("seksten");
+//    muligeOrd.add("sytten");
+//    nulstil();
+      try {
+          hentOrd();
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
   }
 
   public void nulstil() {
@@ -163,8 +167,8 @@ public class Galgelogik implements GalgeI {
   }
 
 
-  public void hentOrdFraDr() throws Exception {
-    String data = hentUrl("https://dr.dk");
+  public void hentOrd() throws Exception {
+    String data = hentUrl("http://www.foxnews.com/");
     //System.out.println("data = " + data);
 
     data = data.substring(data.indexOf("<body")). // fjern headere
