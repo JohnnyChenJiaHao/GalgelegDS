@@ -51,9 +51,7 @@ public class Galgelogik implements GalgeI {
       return antalLiv;
     }
   
-//  public int getScore() {
-//     return score;
-//  }
+
  
   public Galgelogik() throws RemoteException {
     muligeOrd.add("bil");

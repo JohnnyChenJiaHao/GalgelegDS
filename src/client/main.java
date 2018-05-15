@@ -42,7 +42,7 @@ public class main {
                 game = service2.getPort(GalgeI.class);
                 
                 //URL url3 = new URL("http://localhost:9943/galgeleg?wsdl");
-                URL url3 = new URL("http://ubuntu4.saluton.dk:9911/SQL_Soap?wsdl");
+                URL url3 = new URL("http://ubuntu4.saluton.dk:9913/SQL_Soap?wsdl");
                 QName qname3 = new QName("http://database/", "SOAPImplService");
                 Service service3 = Service.create(url3, qname3);
                 game2 = service3.getPort(UserDAOSOAPI.class);
